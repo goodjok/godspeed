@@ -29,8 +29,8 @@ ext {
 
     targetSdkVersion = 23
 
-    versionCode = 24
-    versionName = "1.2.8"
+    versionCode = 1
+    versionName = "1.0.0"
     pluginVersionName = "1.0.0"
 
     dependencies = [
