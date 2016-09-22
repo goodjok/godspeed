@@ -1,0 +1,7 @@
+//include ':wit_app'
+
+include ':godspeed-common'  //基本架构部分
+
+include ':godspeed-share-pay-librady'     //支付以及分享插件
+
+include ':umeng-social-sdk-library'

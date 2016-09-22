@@ -1,0 +1,14 @@
+.idea/
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+build/
+*.iml
+.idea
+out
+gen
+*.db
+gradle.properties
+gradle_bak.properties
