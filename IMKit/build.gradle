@@ -12,7 +12,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         targetSdkVersion 23
         versionCode 2016062822
-        versionName "2.6.4"
+        versionName "2.7.2"
     }
     buildTypes {
         release {
