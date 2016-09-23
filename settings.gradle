@@ -1,5 +1,6 @@
 
 include ':godspeed-common'  //基本架构部分
+include ':godspeed-service'  //基本架构部分
 
 include ':godspeed-share-pay-librady'     //支付以及分享插件
 
