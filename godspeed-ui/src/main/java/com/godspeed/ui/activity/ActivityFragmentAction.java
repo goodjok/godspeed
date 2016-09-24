@@ -19,6 +19,6 @@ public interface ActivityFragmentAction {
 
     void hiddenLoading() ;
 
-    Class<Dialog> getDialogClass();
+    Class<? extends Dialog> getDialogClass();
 
 }
