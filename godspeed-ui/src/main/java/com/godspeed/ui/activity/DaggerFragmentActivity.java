@@ -17,6 +17,7 @@ import com.godspeed.source.event.EmptyEvent;
 import com.godspeed.source.net.DaggerHttpService;
 import com.godspeed.ui.dagger.GodspeedUIComponent;
 import com.godspeed.ui.widget.loading.GodspeedLoadingView;
+import com.godspeed.ui.widget.title.GodspeedTitleBarView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -29,6 +30,8 @@ import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 
+import static butterknife.ButterKnife.findById;
+
 public abstract class DaggerFragmentActivity extends FragmentActivity implements ActivityFragmentAction {
     protected PermissionCallback permissionCallback;
     public static final int CHECK_PERMISSION_CODE = 9527748;
@@ -38,6 +41,7 @@ public abstract class DaggerFragmentActivity extends FragmentActivity implements
 
 
     protected GodspeedLoadingView godspeedLoadingView;
+    protected GodspeedTitleBarView godspeedTitleBar;
 
 
 
@@ -119,6 +123,7 @@ public abstract class DaggerFragmentActivity extends FragmentActivity implements
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     protected void onCreate(Bundle savedInstanceState) {
         ((GodspeedUIComponent) GodspeedCommonApplication.get(this).getComponent()).inject(this);
         GodspeedContext.setTopAcivity(new WeakReference<Activity>(this));
@@ -137,8 +142,10 @@ public abstract class DaggerFragmentActivity extends FragmentActivity implements
         if(contentViewId>0) {
             View view = View.inflate(this, contentViewId, null);
             super.setContentView(view);
-//            ButterKnife.bind(this, view);
-            ButterKnife.bind(this);
+            ButterKnife.bind(this, view);
+
+
+            godspeedTitleBar= findById(view,getTitleBarRes());
 
             initHeader(view);
             initWidget(view);
@@ -153,6 +160,7 @@ public abstract class DaggerFragmentActivity extends FragmentActivity implements
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
+
 
     public abstract int getContentViewId();
 

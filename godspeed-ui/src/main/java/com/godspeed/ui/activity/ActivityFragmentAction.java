@@ -1,6 +1,7 @@
 package com.godspeed.ui.activity;
 
 import android.app.Dialog;
+import android.support.annotation.IdRes;
 import android.view.View;
 
 public interface ActivityFragmentAction {
@@ -21,4 +22,6 @@ public interface ActivityFragmentAction {
 
     Class<? extends Dialog> getDialogClass();
 
+    @IdRes
+    int getTitleBarRes();
 }

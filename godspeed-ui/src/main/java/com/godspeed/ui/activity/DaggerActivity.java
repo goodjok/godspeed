@@ -16,6 +16,7 @@ import com.godspeed.source.event.EmptyEvent;
 import com.godspeed.source.net.DaggerHttpService;
 import com.godspeed.ui.dagger.GodspeedUIComponent;
 import com.godspeed.ui.widget.loading.GodspeedLoadingView;
+import com.godspeed.ui.widget.title.GodspeedTitleBarView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -28,6 +29,8 @@ import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 
+import static butterknife.ButterKnife.findById;
+
 public abstract    class DaggerActivity extends Activity implements ActivityFragmentAction {
     protected PermissionCallback permissionCallback;
     public static final int CHECK_PERMISSION_CODE = 9527748;
@@ -36,6 +39,7 @@ public abstract    class DaggerActivity extends Activity implements ActivityFrag
     public DaggerHttpService httpService;
 
     protected GodspeedLoadingView godspeedLoadingView;
+    protected GodspeedTitleBarView godspeedTitleBar;
 
 
     @Override
@@ -109,6 +113,7 @@ public abstract    class DaggerActivity extends Activity implements ActivityFrag
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     protected void onCreate(Bundle savedInstanceState) {
         ((GodspeedUIComponent) GodspeedCommonApplication.get(this).getComponent()).inject(this);
         GodspeedContext.setTopAcivity(new WeakReference<Activity>(this));
@@ -122,12 +127,17 @@ public abstract    class DaggerActivity extends Activity implements ActivityFrag
         if(dialogClass!=null)
             godspeedLoadingView = new GodspeedLoadingView(this, dialogClass);
 
+
+
+
         int contentViewId=getContentViewId();
 
         if(contentViewId>0) {
             View view = View.inflate(this, contentViewId, null);
             this.setContentView(view);
             ButterKnife.bind(this, view);
+
+            godspeedTitleBar= findById(view,getTitleBarRes());
 
             initHeader(view);
             initWidget(view);

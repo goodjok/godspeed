@@ -15,6 +15,7 @@ import com.godspeed.ui.activity.ActivityFragmentAction;
 import com.godspeed.ui.activity.DaggerFragmentActivity;
 import com.godspeed.ui.dagger.GodspeedUIComponent;
 import com.godspeed.ui.widget.loading.GodspeedLoadingView;
+import com.godspeed.ui.widget.title.GodspeedTitleBarView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -23,6 +24,8 @@ import org.greenrobot.eventbus.ThreadMode;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+
+import static butterknife.ButterKnife.findById;
 
 public abstract class DaggerFragment extends Fragment implements ActivityFragmentAction {
     public final static int GETDATA_STATE_PULL = 1;
@@ -33,6 +36,7 @@ public abstract class DaggerFragment extends Fragment implements ActivityFragmen
     public DaggerHttpService httpService;
 
     protected GodspeedLoadingView godspeedLoadingView;
+    protected GodspeedTitleBarView godspeedTitleBar;
 
 
     @Override
@@ -66,6 +70,7 @@ public abstract class DaggerFragment extends Fragment implements ActivityFragmen
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public   View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ((GodspeedUIComponent) GodspeedCommonApplication.get(getActivity()).getComponent()).inject(this);
         super.onCreateView(inflater,container,savedInstanceState);
@@ -83,6 +88,9 @@ public abstract class DaggerFragment extends Fragment implements ActivityFragmen
             View view = inflater.inflate(contentViewId, container, false);
 
             ButterKnife.bind(this, view);
+
+            godspeedTitleBar= findById(view,getTitleBarRes());
+
             initHeader(view);
             initWidget(view);
             setWidgetState(view);
