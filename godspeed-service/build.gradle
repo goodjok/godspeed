@@ -106,3 +106,4 @@ dependencies {
 
 
 }
+//apply from: new File(rootProject.projectDir, "tools/gradle-on-demand.gradle");

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item type="id" name="tabbar_frament"/>
+    <item type="id" name="tabbar_viewpager"/>
+    <item type="id" name="tabbar_tabwidget"/>
+
+    <item type="id" name="godspeed_empty_view_text"/>
+    <item type="id" name="godspeed_swipe_refresh_widget"/>
+    <item type="id" name="godspeed_recyclerview"/>
+
+</resources>

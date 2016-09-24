@@ -6,7 +6,6 @@ import com.godspeed.pay.ShareAndPayService;
 import com.godspeed.pay.ThirdPayEntity;
 import com.tencent.mm.sdk.modelpay.PayReq;
 import com.tencent.mm.sdk.openapi.IWXAPI;
-import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
 public class WeixinPay {

@@ -53,3 +53,5 @@ dependencies {
 
     compile "org.greenrobot:eventbus:${event_version}"
 }
+
+//apply from: new File(rootProject.projectDir, "tools/gradle-on-demand.gradle");
