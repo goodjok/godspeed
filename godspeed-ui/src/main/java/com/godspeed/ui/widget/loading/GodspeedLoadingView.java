@@ -18,10 +18,10 @@ public class GodspeedLoadingView {
 
 
     protected Context context;
-    protected Class<Dialog> dialogClass;
+    protected Class<? extends Dialog> dialogClass;
     protected Dialog dialog;
 
-    public GodspeedLoadingView(Context context, Class<Dialog> dialogClass) {
+    public GodspeedLoadingView(Context context, Class<? extends Dialog> dialogClass) {
         this.context = context;
         this.dialogClass = dialogClass;
     }

@@ -73,7 +73,7 @@ public abstract class DaggerFragment extends Fragment implements ActivityFragmen
             EventBus.getDefault().register(this);
         }
 
-        Class<Dialog> dialogClass =getDialogClass();
+        Class<? extends Dialog> dialogClass =getDialogClass();
         if(dialogClass!=null)
             godspeedLoadingView = new GodspeedLoadingView(getActivity(), dialogClass);
 
