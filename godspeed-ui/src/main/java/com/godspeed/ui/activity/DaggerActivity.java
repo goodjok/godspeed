@@ -15,6 +15,7 @@ import com.godspeed.source.context.GodspeedContext;
 import com.godspeed.source.event.EmptyEvent;
 import com.godspeed.source.net.DaggerHttpService;
 import com.godspeed.ui.dagger.GodspeedUIComponent;
+import com.godspeed.ui.widget.DefaultValue;
 import com.godspeed.ui.widget.loading.GodspeedLoadingView;
 import com.godspeed.ui.widget.title.GodspeedTitleBarView;
 
@@ -132,12 +133,13 @@ public abstract    class DaggerActivity extends Activity implements ActivityFrag
 
         int contentViewId=getContentViewId();
 
-        if(contentViewId>0) {
+        if(contentViewId>DefaultValue.NO_ID) {
             View view = View.inflate(this, contentViewId, null);
             this.setContentView(view);
             ButterKnife.bind(this, view);
 
-            godspeedTitleBar= findById(view,getTitleBarRes());
+            if(getTitleBarRes()> DefaultValue.NO_ID)
+                godspeedTitleBar= findById(view,getTitleBarRes());
 
             initHeader(view);
             initWidget(view);

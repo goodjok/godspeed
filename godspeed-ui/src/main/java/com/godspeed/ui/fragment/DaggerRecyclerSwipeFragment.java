@@ -13,6 +13,7 @@ import com.godspeed.ui.R;
 import com.godspeed.ui.adpter.AdapterDataSource;
 import com.godspeed.ui.adpter.DaggerRecyclerSwipeAdapter;
 import com.godspeed.ui.fragment.layoutmanager.RecycleViewDivider;
+import com.godspeed.ui.widget.title.GodspeedTitleBarView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,6 @@ public abstract class DaggerRecyclerSwipeFragment<T extends AdapterDataSource> e
     protected SwipeRefreshLayout refreshWidget;
 
     protected TextView emptyViewText;
-
 
 
     protected DaggerRecyclerSwipeAdapter mAdapter;

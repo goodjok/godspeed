@@ -18,6 +18,8 @@ import com.godspeed.source.context.GodspeedContext;
 import com.godspeed.source.net.DaggerHttpService;
 import com.godspeed.source.util.collection.CheckUtil;
 import com.godspeed.ui.R;
+import com.godspeed.ui.activity.DaggerActivity;
+import com.godspeed.ui.activity.DaggerFragmentActivity;
 import com.godspeed.ui.fragment.DaggerRecyclerSwipeFragment;
 
 import java.util.ArrayList;
@@ -36,6 +38,30 @@ public abstract class DaggerRecyclerSwipeAdapter<T extends AdapterDataSource, VH
 
 
     protected DaggerHttpService httpService;
+
+    public DaggerRecyclerSwipeAdapter(DaggerActivity context) {
+        mContext = context;
+        mLayoutInflater = LayoutInflater.from(mContext);
+        httpService = context.httpService;
+
+    }
+
+    public DaggerRecyclerSwipeAdapter(DaggerActivity context, List<T> list) {
+        this(context);
+        resetData(list);
+    }
+
+    public DaggerRecyclerSwipeAdapter(DaggerFragmentActivity context) {
+        mContext = context;
+        mLayoutInflater = LayoutInflater.from(mContext);
+        httpService = context.httpService;
+
+    }
+
+    public DaggerRecyclerSwipeAdapter(DaggerFragmentActivity context, List<T> list) {
+        this(context);
+        resetData(list);
+    }
 
     public DaggerRecyclerSwipeAdapter(DaggerRecyclerSwipeFragment context) {
         mContext = context.getActivity();

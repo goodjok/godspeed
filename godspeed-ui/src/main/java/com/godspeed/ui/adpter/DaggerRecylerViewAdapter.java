@@ -17,6 +17,8 @@ import com.godspeed.source.context.GodspeedContext;
 import com.godspeed.source.net.DaggerHttpService;
 import com.godspeed.source.util.collection.CheckUtil;
 import com.godspeed.ui.R;
+import com.godspeed.ui.activity.DaggerActivity;
+import com.godspeed.ui.activity.DaggerFragmentActivity;
 import com.godspeed.ui.fragment.DaggerRecyclerViewFragment;
 
 import java.util.ArrayList;
@@ -37,6 +39,28 @@ public abstract class DaggerRecylerViewAdapter<T extends AdapterDataSource, VH e
 
 
     protected DaggerHttpService httpService;
+
+    public DaggerRecylerViewAdapter(DaggerActivity context) {
+        mContext = context;
+        mLayoutInflater = LayoutInflater.from(mContext);
+        httpService = context.httpService;
+    }
+
+    public DaggerRecylerViewAdapter(DaggerActivity context, List<T> list) {
+        this(context);
+        resetData(list);
+    }
+
+    public DaggerRecylerViewAdapter(DaggerFragmentActivity context) {
+        mContext = context;
+        mLayoutInflater = LayoutInflater.from(mContext);
+        httpService = context.httpService;
+    }
+
+    public DaggerRecylerViewAdapter(DaggerFragmentActivity context, List<T> list) {
+        this(context);
+        resetData(list);
+    }
 
     public DaggerRecylerViewAdapter(DaggerRecyclerViewFragment context) {
         mContext = context.getActivity();
