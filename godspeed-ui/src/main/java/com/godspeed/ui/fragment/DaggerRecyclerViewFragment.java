@@ -10,14 +10,13 @@ import android.widget.TextView;
 import com.godspeed.source.callback.RecyclerListCallback;
 import com.godspeed.source.util.collection.CheckUtil;
 import com.godspeed.ui.R;
-import com.godspeed.ui.adpter.AdapterDataSource;
 import com.godspeed.ui.adpter.DaggerRecylerViewAdapter;
 import com.godspeed.ui.fragment.layoutmanager.RecycleViewDivider;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class DaggerRecyclerViewFragment<T extends AdapterDataSource> extends DaggerFragment implements SwipeRefreshLayout.OnRefreshListener {
+public abstract class DaggerRecyclerViewFragment<T> extends DaggerFragment implements SwipeRefreshLayout.OnRefreshListener {
 
 
     protected RecyclerView baseRecyclerView;

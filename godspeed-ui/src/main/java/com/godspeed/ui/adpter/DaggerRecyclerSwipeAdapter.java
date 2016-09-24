@@ -25,7 +25,7 @@ import com.godspeed.ui.fragment.DaggerRecyclerSwipeFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class DaggerRecyclerSwipeAdapter<T extends AdapterDataSource, VH extends DaggerRecylerViewAdapter.BaseRecyclerViewHolder> extends RecyclerSwipeAdapter<RecyclerView.ViewHolder> {
+public abstract class DaggerRecyclerSwipeAdapter<T, VH extends DaggerRecylerViewAdapter.BaseRecyclerViewHolder> extends RecyclerSwipeAdapter<RecyclerView.ViewHolder> {
 
     public static final int HEADER_VIEW_TYPE = -1000;
     public static final int FOOTER_VIEW_TYPE = -2000;

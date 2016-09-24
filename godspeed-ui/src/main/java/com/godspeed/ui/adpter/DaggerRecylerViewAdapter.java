@@ -26,7 +26,7 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 
-public abstract class DaggerRecylerViewAdapter<T extends AdapterDataSource, VH extends DaggerRecylerViewAdapter.BaseRecyclerViewHolder> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public abstract class DaggerRecylerViewAdapter<T, VH extends DaggerRecylerViewAdapter.BaseRecyclerViewHolder> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public static final int HEADER_VIEW_TYPE = -1000;
     public static final int FOOTER_VIEW_TYPE = -2000;

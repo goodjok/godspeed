@@ -13,7 +13,7 @@ import com.godspeed.source.util.collection.CheckUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class DaggerAdapter<T extends AdapterDataSource> extends DaggerBaseAdapter {
+public abstract class DaggerAdapter<T> extends DaggerBaseAdapter {
 
 
     protected List<T> libraryAdapterList = new ArrayList<T>();
