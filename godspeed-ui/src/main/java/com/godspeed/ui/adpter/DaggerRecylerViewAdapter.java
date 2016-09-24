@@ -1,5 +1,6 @@
 package com.godspeed.ui.adpter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.LayoutRes;
@@ -39,6 +40,16 @@ public abstract class DaggerRecylerViewAdapter<T, VH extends DaggerRecylerViewAd
 
 
     protected DaggerHttpService httpService;
+
+    public DaggerRecylerViewAdapter(Context context) {
+        mContext = context;
+        mLayoutInflater = LayoutInflater.from(mContext);
+    }
+
+    public DaggerRecylerViewAdapter(Context context, List<T> list) {
+        this(context);
+        resetData(list);
+    }
 
     public DaggerRecylerViewAdapter(DaggerActivity context) {
         mContext = context;

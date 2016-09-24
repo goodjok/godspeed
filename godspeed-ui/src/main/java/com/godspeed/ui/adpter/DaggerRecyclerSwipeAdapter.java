@@ -39,6 +39,17 @@ public abstract class DaggerRecyclerSwipeAdapter<T, VH extends DaggerRecylerView
 
     protected DaggerHttpService httpService;
 
+
+    public DaggerRecyclerSwipeAdapter(Context context) {
+        mContext = context;
+        mLayoutInflater = LayoutInflater.from(mContext);
+    }
+
+    public DaggerRecyclerSwipeAdapter(Context context, List<T> list) {
+        this(context);
+        resetData(list);
+    }
+
     public DaggerRecyclerSwipeAdapter(DaggerActivity context) {
         mContext = context;
         mLayoutInflater = LayoutInflater.from(mContext);
