@@ -60,6 +60,39 @@ public class JsonConvertUtils {
         return null;
     }
 
+    public static JavaType getSimpleType(Class<?> rawType, JavaType[] parameterTypes) {
+
+        try {
+            return objectMapper.getTypeFactory().constructSimpleType(rawType, parameterTypes);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static JavaType getSimpleType(Class<?> rawType, JavaType parameterType) {
+
+        try {
+            return objectMapper.getTypeFactory().constructReferenceType(rawType, parameterType);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static JavaType getJavaType(Class<?> rawType, JavaType[] parameterTypes) {
+
+        try {
+            return objectMapper.getTypeFactory().constructSimpleType(rawType, parameterTypes);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     public static JavaType getJavaType(Class typeClass, Class rawTypeClass) {
 
         try {

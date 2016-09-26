@@ -1,7 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-
-group='com.github.goodjok'
 
 android {
 
@@ -55,3 +52,4 @@ dependencies {
 }
 
 //apply from: new File(rootProject.projectDir, "tools/gradle-on-demand.gradle");
+apply from: new File(rootProject.projectDir, "tools/gradle-on-github.gradle");

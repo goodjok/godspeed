@@ -1,12 +1,4 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-    }
-}
+
 
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
@@ -41,11 +33,15 @@ android {
 }
 
 def dagger_version = rootProject.ext.dependencies.dagger_version
+def dbflow_version = rootProject.ext.dependencies.dbflow_version
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':godspeed-service')
-    compile project(':godspeed-ui')
+//    compile project(':godspeed-service')
+    compile project(':godspeed-common')
 
 
-    apt "com.google.dagger:dagger-compiler:${dagger_version}"
+//    apt "com.google.dagger:dagger-compiler:${dagger_version}"
+    compile project(':godspeed-annotation')
+    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
+    apt project(':godspeed-compiler')
 }

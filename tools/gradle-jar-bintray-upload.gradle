@@ -14,22 +14,17 @@
  * limitations under the License.
  */
 
-apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'maven'
 apply plugin: 'com.jfrog.bintray'
 
 group = GROUP
 version = VERSION_NAME
 
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
+task sourcesJar(type: Jar, dependsOn: classes) {
+    from sourceSets.main.allSource
     classifier = 'sources'
 }
 
-task javadoc(type: Javadoc) {
-    failOnError false
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
