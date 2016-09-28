@@ -1,11 +1,11 @@
-//include ':testlibrary'  //基本架构部分
+include ':testlibrary'  //基本架构部分
 include ':godspeed-common'  //基本架构部分
-include ':godspeed-service'  //基本架构部分
-include ':godspeed-ui'  //基本架构部分
-
-include ':godspeed-share-pay-librady'     //支付以及分享插件
-
-include ':umeng-social-sdk-library'
-include ':IMKit'
+//include ':godspeed-service'  //基本架构部分
+//include ':godspeed-ui'  //基本架构部分
+//
+//include ':godspeed-share-pay-librady'     //支付以及分享插件
+//
+//include ':umeng-social-sdk-library'
+//include ':IMKit'
 include ':godspeed-annotation'
 include ':godspeed-compiler'

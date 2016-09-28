@@ -42,6 +42,14 @@ dependencies {
 
 //    apt "com.google.dagger:dagger-compiler:${dagger_version}"
     compile project(':godspeed-annotation')
+    //数据库框架
     compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
+    compile ("com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"){
+        exclude module: 'support-annotations', group: 'com.android.support'
+        exclude module: 'dbflow-core', group: 'com.github.Raizlabs.DBFlow'
+    }
+
+
     apt project(':godspeed-compiler')
+    apt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
 }
